@@ -26,6 +26,13 @@ public class UsersEntity {
 
     private String password;
 
-    private Set<RoleEntity> role;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = fetchType.EAGER)
+    @JoinTable(
+        name = "tb_users_roles"
+        joinColumns = @JoinColumn(name="user_id")
+        inverseJoinColumns = @JoinColumn(name="role_id")
+    )
+
+    private Set<RoleEntity> roles;
 
 }

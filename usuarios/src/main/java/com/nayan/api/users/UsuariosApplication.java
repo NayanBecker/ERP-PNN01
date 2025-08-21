@@ -1,5 +1,4 @@
-package com.nayan.api.usuarios;
-
+package com.nayan.api.users;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

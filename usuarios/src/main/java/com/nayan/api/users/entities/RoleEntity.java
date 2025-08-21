@@ -1,4 +1,4 @@
-package com.nayan.api.usuarios.entities;
+package com.nayan.api.users.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,14 +8,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_papeis")
-public class PapelEntity {
+@Table(name = "tb_roles")
+public class RoleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "papel_id")
-    private Long papelId;
+    @Column(name = "role_id")
+    private Long roleId;
 
-    private String nome;
+    private String name;
 
 }

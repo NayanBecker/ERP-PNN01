@@ -1,5 +1,5 @@
 
-package com.nayan.api.usuarios.entities;
+package com.nayan.api.users.entities;
 
 import java.util.Set;
 import java.util.UUID;
@@ -12,19 +12,20 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_usuarios")
-public class UsuarioEntity {
+@Table(name = "tb_users")
+public class UsersEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "usuario_id")
-    private UUID usuarioId;
+    @Column(name = "user_id")
+    private UUID userId;
+
 
     @Column(unique = true, nullable = false)
     private String username;
 
-    private String senha;
+    private String password;
 
-    private Set<PapelEntity> papel;
+    private Set<RoleEntity> role;
 
 }

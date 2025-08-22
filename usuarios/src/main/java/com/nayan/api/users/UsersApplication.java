@@ -3,10 +3,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UsuariosApplication {
+public class UsersApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UsuariosApplication.class, args);
+		SpringApplication.run(UsersApplication.class, args);
 	}
 
 }

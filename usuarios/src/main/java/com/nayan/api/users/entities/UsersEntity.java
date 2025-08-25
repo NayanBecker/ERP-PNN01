@@ -12,8 +12,14 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+
 import java.util.Set;
 import java.util.UUID;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.nayan.api.users.controller.dto.LoginRequest;
+
 import lombok.Data;
 
 @Data
@@ -35,5 +41,12 @@ public class UsersEntity {
     @JoinTable(name = "tb_users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 
     private Set<RoleEntity> roles;
+
+    public boolean isLoginCorrect(LoginRequest loginRequest, PasswordEncoder passwordEncoder) {
+        if (!this.username.equals(loginRequest.username())) {
+            return false;
+        }
+        return passwordEncoder.matches(loginRequest.password(), this.password);
+    }
 
 }

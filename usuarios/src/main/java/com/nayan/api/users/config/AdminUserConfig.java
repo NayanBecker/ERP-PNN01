@@ -2,8 +2,6 @@ package com.nayan.api.users.config;
 
 import java.util.Set;
 
-import javax.management.relation.Role;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

@@ -16,9 +16,9 @@ import jakarta.transaction.Transactional;
 @Configuration
 public class AdminUserConfig implements CommandLineRunner {
 
-    private RoleRepository roleRepository;
-    private UserRepository userRepository;
-    private BCryptPasswordEncoder passwordEncoder;
+    private final RoleRepository roleRepository;
+    private final UserRepository userRepository;
+    private final BCryptPasswordEncoder passwordEncoder;
 
     public AdminUserConfig(RoleRepository roleRepository, UserRepository userRepository,
             BCryptPasswordEncoder passwordEncoder) {

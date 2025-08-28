@@ -1,6 +1,7 @@
 package com.nayan.api.users.controller;
 
 import java.time.Instant;
+import java.util.stream.Collectors;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nayan.api.users.controller.dto.LoginRequest;
 import com.nayan.api.users.controller.dto.LoginResponse;
+import com.nayan.api.users.entities.RoleEntity;
 import com.nayan.api.users.repository.UserRepository;
 
 @RestController
@@ -41,11 +43,15 @@ public class TokenController {
         var instantNow = Instant.now();
         var secondsToExpire = 300L;
 
+        var scopes = user.get().getRoles()
+                .stream().map(RoleEntity::getName).collect(Collectors.joining(" "));
+
         var claims = JwtClaimsSet.builder()
                 .issuer("mybackend")
                 .subject(user.get().getUserId().toString())
                 .issuedAt(instantNow)
                 .expiresAt(instantNow.plusSeconds(secondsToExpire))
+                .claim("scope", scopes)
                 .build();
 
         var jwtValue = jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();

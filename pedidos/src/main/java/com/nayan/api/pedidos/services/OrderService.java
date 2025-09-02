@@ -3,8 +3,11 @@ package com.nayan.api.pedidos.services;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import com.nayan.api.pedidos.controller.dto.OrderResponse;
 import com.nayan.api.pedidos.entity.OrderEntity;
 import com.nayan.api.pedidos.entity.OrderItemList;
 import com.nayan.api.pedidos.listener.dto.OrderCreatedEvent;
@@ -27,6 +30,11 @@ public class OrderService {
         orderEntity.setTotalAmount(getTotal(event));
 
         orderRepository.save(orderEntity);
+    }
+
+    public Page<OrderResponse> findAllByCustomerId(Long customerId, PageRequest pageRequest) {
+        var orders = orderRepository.findAllByCustomerId(customerId, pageRequest);
+        return orders.map(OrderResponse::fromEntity);
     }
 
     private BigDecimal getTotal(OrderCreatedEvent event) {

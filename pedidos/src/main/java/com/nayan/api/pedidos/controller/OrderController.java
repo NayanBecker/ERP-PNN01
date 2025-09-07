@@ -1,5 +1,7 @@
 package com.nayan.api.pedidos.controller;
 
+import java.util.Map;
+
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +30,11 @@ public class OrderController {
             @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize) {
 
         var body = orderService.findAllByCustomerId(customerId, PageRequest.of(page, pageSize));
-        return ResponseEntity.ok(new ApiResponse<>(body.getContent(), PaginationResponse.fromPage(body)));
+        var totalOnOrders = orderService.findTotalOnOrderByCustomerId(customerId);
+
+        return ResponseEntity.ok(new ApiResponse<>(
+                Map.of("totalOnOrders", totalOnOrders),
+                body.getContent(), PaginationResponse.fromPage(body)));
     }
 
 }

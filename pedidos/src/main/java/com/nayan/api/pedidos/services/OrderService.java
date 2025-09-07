@@ -3,8 +3,14 @@ package com.nayan.api.pedidos.services;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.bson.Document;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import static org.springframework.data.mongodb.core.aggregation.Aggregation.match;
+import static org.springframework.data.mongodb.core.aggregation.Aggregation.newAggregation;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Service;
 
 import com.nayan.api.pedidos.controller.dto.OrderResponse;
@@ -16,9 +22,11 @@ import com.nayan.api.pedidos.repository.OrderRepository;
 @Service
 public class OrderService {
     private final OrderRepository orderRepository;
+    private final MongoTemplate mongoTemplate;
 
-    public OrderService(OrderRepository orderRepository) {
+    public OrderService(OrderRepository orderRepository, MongoTemplate mongoTemplate) {
         this.orderRepository = orderRepository;
+        this.mongoTemplate = mongoTemplate;
     }
 
     public void saveOrder(OrderCreatedEvent event) {
@@ -43,11 +51,22 @@ public class OrderService {
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
-    private List<OrderItemList> getListOrderItems(OrderCreatedEvent event) {
+    public BigDecimal findTotalOnOrderByCustomerId(Long customerId) {
+        var aggregations = newAggregation(
+                match(Criteria.where("customerId").is(customerId)),
+                Aggregation.group().sum("totalAmount").as("totalAmount"));
+
+        var response = mongoTemplate.aggregate(aggregations, "tb_orders", Document.class).getUniqueMappedResult();
+
+        return new BigDecimal(response.get("totalAmount").toString());
+
+    }
+
+    private static List<OrderItemList> getListOrderItems(OrderCreatedEvent event) {
         return event.items().stream()
                 .map(item -> {
                     var orderItemEntity = new OrderItemList();
-                    orderItemEntity.setProduct(item.productId().toString());
+                    orderItemEntity.setProduct(item.product());
                     orderItemEntity.setQuantity(item.quantity());
                     orderItemEntity.setPrice(item.price());
                     return orderItemEntity;

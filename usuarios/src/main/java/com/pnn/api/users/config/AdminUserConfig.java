@@ -1,4 +1,4 @@
-package com.nayan.api.users.config;
+package com.pnn.api.users.config;
 
 import java.util.Set;
 
@@ -6,10 +6,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.nayan.api.users.entities.RoleEntity;
-import com.nayan.api.users.entities.UsersEntity;
-import com.nayan.api.users.repository.RoleRepository;
-import com.nayan.api.users.repository.UserRepository;
+import com.pnn.api.users.entities.RoleEntity;
+import com.pnn.api.users.entities.UsersEntity;
+import com.pnn.api.users.repository.RoleRepository;
+import com.pnn.api.users.repository.UserRepository;
 
 import jakarta.transaction.Transactional;
 

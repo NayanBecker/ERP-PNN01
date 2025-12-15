@@ -1,4 +1,4 @@
-package com.nayan.api.pedidos.config;
+package com.pnn.api.pedidos.config;
 
 import org.springframework.amqp.core.Declarable;
 import org.springframework.amqp.core.Queue;

@@ -1,4 +1,4 @@
-package com.nayan.api.users.controller;
+package com.pnn.api.users.controller;
 
 import java.util.List;
 import java.util.Set;
@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.nayan.api.users.controller.dto.CreateUserDto;
-import com.nayan.api.users.entities.RoleEntity;
-import com.nayan.api.users.entities.UsersEntity;
-import com.nayan.api.users.repository.RoleRepository;
-import com.nayan.api.users.repository.UserRepository;
+import com.pnn.api.users.controller.dto.CreateUserDto;
+import com.pnn.api.users.entities.RoleEntity;
+import com.pnn.api.users.entities.UsersEntity;
+import com.pnn.api.users.repository.RoleRepository;
+import com.pnn.api.users.repository.UserRepository;
 
 import jakarta.transaction.Transactional;
 

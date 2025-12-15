@@ -1,4 +1,4 @@
-package com.nayan.api.users.controller;
+package com.pnn.api.users.controller;
 
 import java.time.Instant;
 import java.util.stream.Collectors;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nayan.api.users.controller.dto.LoginRequest;
-import com.nayan.api.users.controller.dto.LoginResponse;
-import com.nayan.api.users.entities.RoleEntity;
-import com.nayan.api.users.repository.UserRepository;
+import com.pnn.api.users.controller.dto.LoginRequest;
+import com.pnn.api.users.controller.dto.LoginResponse;
+import com.pnn.api.users.entities.RoleEntity;
+import com.pnn.api.users.repository.UserRepository;
 
 @RestController
 public class TokenController {

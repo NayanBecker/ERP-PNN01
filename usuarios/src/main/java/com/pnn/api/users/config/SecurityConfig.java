@@ -1,4 +1,4 @@
-package com.nayan.api.users.config;
+package com.pnn.api.users.config;
 
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;

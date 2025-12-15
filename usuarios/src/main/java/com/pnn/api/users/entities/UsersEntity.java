@@ -1,5 +1,12 @@
 
-package com.nayan.api.users.entities;
+package com.pnn.api.users.entities;
+
+import java.util.Set;
+import java.util.UUID;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.pnn.api.users.controller.dto.LoginRequest;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -12,14 +19,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-
-import java.util.Set;
-import java.util.UUID;
-
-import org.springframework.security.crypto.password.PasswordEncoder;
-
-import com.nayan.api.users.controller.dto.LoginRequest;
-
 import lombok.Data;
 
 @Data

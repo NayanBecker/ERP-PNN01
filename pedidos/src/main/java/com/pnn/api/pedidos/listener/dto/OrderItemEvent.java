@@ -1,5 +1,5 @@
 
-package com.nayan.api.pedidos.listener.dto;
+package com.pnn.api.pedidos.listener.dto;
 
 import java.math.BigDecimal;
 

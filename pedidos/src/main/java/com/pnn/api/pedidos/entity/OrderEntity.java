@@ -1,4 +1,4 @@
-package com.nayan.api.pedidos.entity;
+package com.pnn.api.pedidos.entity;
 
 import java.math.BigDecimal;
 import java.util.List;

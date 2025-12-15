@@ -1,8 +1,9 @@
-package com.nayan.api.users.repository;
+package com.pnn.api.users.repository;
 
-import com.nayan.api.users.entities.RoleEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.pnn.api.users.entities.RoleEntity;
 
 @Repository
 public interface RoleRepository extends JpaRepository<RoleEntity, Long> {

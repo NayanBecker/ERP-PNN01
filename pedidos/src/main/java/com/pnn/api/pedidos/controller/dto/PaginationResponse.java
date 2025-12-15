@@ -1,4 +1,4 @@
-package com.nayan.api.pedidos.controller.dto;
+package com.pnn.api.pedidos.controller.dto;
 
 import org.springframework.data.domain.Page;
 

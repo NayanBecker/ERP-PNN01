@@ -1,5 +1,5 @@
 
-package com.nayan.api.users.entities;
+package com.pnn.api.users.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

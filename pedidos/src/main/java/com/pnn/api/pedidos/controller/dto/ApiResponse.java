@@ -1,10 +1,10 @@
-package com.nayan.api.pedidos.controller.dto;
+package com.pnn.api.pedidos.controller.dto;
 
 import java.util.List;
 import java.util.Map;
 
 public record ApiResponse<T>(
-        Map<String, Object> summary,
-        List<T> data,
-        PaginationResponse pagination) {
+                Map<String, Object> summary,
+                List<T> data,
+                PaginationResponse pagination) {
 }

@@ -1,4 +1,4 @@
-package com.nayan.api.pedidos.listener;
+package com.pnn.api.pedidos.listener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,9 +6,9 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.messaging.Message;
 import org.springframework.stereotype.Component;
 
-import static com.nayan.api.pedidos.config.RabbitMqConfig.ORDER_CREATED_QUEUE;
-import com.nayan.api.pedidos.listener.dto.OrderCreatedEvent;
-import com.nayan.api.pedidos.services.OrderService;
+import static com.pnn.api.pedidos.config.RabbitMqConfig.ORDER_CREATED_QUEUE;
+import com.pnn.api.pedidos.listener.dto.OrderCreatedEvent;
+import com.pnn.api.pedidos.services.OrderService;
 
 @Component
 public class OrderCreatedListener {

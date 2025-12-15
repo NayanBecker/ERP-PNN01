@@ -1,4 +1,4 @@
-package com.nayan.api.pedidos.controller;
+package com.pnn.api.pedidos.controller;
 
 import java.util.Map;
 
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nayan.api.pedidos.controller.dto.ApiResponse;
-import com.nayan.api.pedidos.controller.dto.OrderResponse;
-import com.nayan.api.pedidos.controller.dto.PaginationResponse;
-import com.nayan.api.pedidos.services.OrderService;
+import com.pnn.api.pedidos.controller.dto.ApiResponse;
+import com.pnn.api.pedidos.controller.dto.OrderResponse;
+import com.pnn.api.pedidos.controller.dto.PaginationResponse;
+import com.pnn.api.pedidos.services.OrderService;
 
 @RestController
 public class OrderController {

@@ -6,8 +6,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.pnn.api.users.entities.RoleEntity;
 import com.pnn.api.users.entities.UsersEntity;
+import com.pnn.api.users.enums.RoleValues;
 import com.pnn.api.users.repository.RoleRepository;
 import com.pnn.api.users.repository.UserRepository;
 
@@ -30,7 +30,7 @@ public class AdminUserConfig implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... args) throws Exception {
-        var roleAdmin = roleRepository.findByName(RoleEntity.Values.ADMIN.name());
+        var roleAdmin = roleRepository.findByName(RoleValues.ADMIN.name());
 
         System.out.println("Role ADMIN encontrada: " + roleAdmin);
         var userAdmin = userRepository.findByUsername("admin");

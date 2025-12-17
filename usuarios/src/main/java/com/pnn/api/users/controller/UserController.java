@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.pnn.api.users.controller.dto.CreateUserDto;
-import com.pnn.api.users.entities.RoleEntity;
 import com.pnn.api.users.entities.UsersEntity;
+import com.pnn.api.users.enums.RoleValues;
 import com.pnn.api.users.repository.RoleRepository;
 import com.pnn.api.users.repository.UserRepository;
 
@@ -41,7 +41,7 @@ public class UserController {
     @PostMapping("/users")
     public ResponseEntity<Void> newUser(@RequestBody CreateUserDto createUserDto) {
 
-        var basicRole = roleRepository.findByName(RoleEntity.Values.FUNCIONARIO.name());
+        var basicRole = roleRepository.findByName(RoleValues.FUNCIONARIO.name());
 
         var userFromDb = userRepository.findByUsername(createUserDto.username());
         if (userFromDb.isPresent()) {

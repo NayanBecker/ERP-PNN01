@@ -20,16 +20,4 @@ public class RoleEntity {
     private Long roleId;
 
     private String name;
-
-    public enum Values {
-
-        ADMIN(1L),
-        FUNCIONARIO(2L);
-
-        long roleId;
-
-        Values(long roleId) {
-            this.roleId = roleId;
-        }
-    }
 }
